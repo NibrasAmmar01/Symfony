@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme contactForm 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Contact Us!</h1>
+    {{ form_start(contactForm) }}
+
+    {{ form_row(contactForm.name, {'attr': {'placeholder': 'Your Name'}}) }}
+    {{ form_row(contactForm.email, {'attr': {'placeholder': 'Your Email'}}) }}
+    {{ form_row(contactForm.message, {'attr': {'placeholder': 'Your Message'}}) }}
+    {{ form_row(contactForm.phoneNumber, {'attr': {'placeholder': 'Your Phone Number'}}) }}
+
+    <button type="submit" class="btn btn-success">Contact Us</button>
+    {{ form_end(contactForm) }}
+{% endblock %}

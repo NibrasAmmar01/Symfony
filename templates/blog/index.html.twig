@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+    <section class="articles">
+        {% for article in articles %}
+        <article>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">
+                Written on {{ article.createdAt | date('d/m/y') }} at {{ article.createdAt | date('H:i') }} in the politics category
+            </div>
+            <div class="content">
+                <img src="{{ article.image }}" alt="Article Image">
+                {{ article.content | raw }}
+                 {# Repeat for each additional paragraph #}
+                <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary">Read the Rest</a>
+            </div>
+            <div>
+                <pre>{{ dump(article.content) }}</pre>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+    
+{% endblock %}
